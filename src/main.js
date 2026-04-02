@@ -1,3 +1,3 @@
 // main.js
-import 'modern-normalize/modern-normalize.css';
+import './css/modern-normalize.css';
 import './css/styles.css';
