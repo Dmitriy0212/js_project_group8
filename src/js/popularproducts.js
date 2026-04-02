@@ -1,24 +1,33 @@
-import Swiper from 'swiper';
-import 'swiper/css';
-import 'swiper/css/pagination';
-import 'swiper/css/navigation';
-
 export default async function initSwiper() {
-  const slidesData = ['Слайд 1', 'Слайд 2', 'Слайд 3', 'Слайд 4', 'Слайд 5'];
+  // Данные слайдов
+  const slidesData = [
+    { img: 'https://picsum.photos/300/200?1', title: 'Слайд 1' },
+    { img: 'https://picsum.photos/300/200?2', title: 'Слайд 2' },
+    { img: 'https://picsum.photos/300/200?3', title: 'Слайд 3' },
+    { img: 'https://picsum.photos/300/200?4', title: 'Слайд 4' },
+    { img: 'https://picsum.photos/300/200?5', title: 'Слайд 5' },
+  ];
+
   const slidesList = document.getElementById('slidesList');
 
-  if (!slidesList) return; // защита на случай, если DOM ещё не загрузился
-
+  // Создаём li для каждого слайда
   slidesList.innerHTML = slidesData
-    .map(text => `<li class="swiper-slide">${text}</li>`)
+    .map(
+      slide => `
+    <li class="swiper-slide">
+      <img src="${slide.img}" alt="${slide.title}">
+      <h3>${slide.title}</h3>
+    </li>
+  `
+    )
     .join('');
 
-  return new Swiper('.mySwiper', {
+  // Инициализация Swiper
+  const swiper = new Swiper('.mySwiper', {
     slidesPerView: 3,
     spaceBetween: 20,
     pagination: { el: '.swiper-pagination', clickable: true },
     navigation: {
-      // 👈 добавили навигацию
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev',
     },
