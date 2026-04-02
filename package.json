@@ -1,11 +1,11 @@
 {
-  "name": "js_project_group8",
+  "name": "cheerful_monk",
   "private": true,
   "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build --base=/js_project_group8/",
+    "build": "vite build --base=/cheerful_monk/",
     "preview": "vite preview"
   },
   "devDependencies": {
