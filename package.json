@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build --base=/cheerful_monk/",
+    "build": "vite build --base=/js_project_group8/",
     "preview": "vite preview"
   },
   "devDependencies": {
