@@ -24,17 +24,19 @@ export default async function initSwiper() {
 
   // Инициализация Swiper
   const swiper = new Swiper('.mySwiper', {
-    slidesPerView: 3,
-    spaceBetween: 20,
+    slidesPerView: 3, // Показывать 3 слайда одновременно
+    slidesPerGroup: 3, // Листать по 3 слайда
+    spaceBetween: 20, // Отступ между слайдами
     pagination: { el: '.swiper-pagination', clickable: true },
     navigation: {
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev',
     },
     breakpoints: {
-      320: { slidesPerView: 1 },
-      768: { slidesPerView: 2 },
-      1200: { slidesPerView: 3 },
+      // Адаптив
+      320: { slidesPerView: 1, slidesPerGroup: 1 },
+      768: { slidesPerView: 2, slidesPerGroup: 2 },
+      1200: { slidesPerView: 3, slidesPerGroup: 3 },
     },
   });
 }
