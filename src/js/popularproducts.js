@@ -1,4 +1,4 @@
-export default async function initSwiper() {
+/*export default async function initSwiper() {
   // Данные слайдов
   const slidesData = [
     { img: 'https://picsum.photos/300/200?1', title: 'Слайд 1' },
@@ -40,3 +40,13 @@ export default async function initSwiper() {
     },
   });
 }
+*/
+import Swiper from 'swiper/bundle';
+import 'swiper/css';
+const swiperEl = document.querySelector('.swiper-wrapper');
+var swiper = new Swiper('.mySwiper', {
+  pagination: {
+    el: '.swiper-pagination',
+    dynamicBullets: true,
+  },
+});
