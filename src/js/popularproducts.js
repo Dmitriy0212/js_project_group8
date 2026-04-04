@@ -1,8 +1,8 @@
 import Swiper from 'swiper/bundle';
 import 'swiper/css';
-import { getPopularProducts } from './popularproducts-pixabay-api.js';
+import { getPopularProducts } from './baseUrl';
 
-export default async function initSwiper() {
+export async function initSwiper() {
   const sliderWrapper = document.querySelector('.slider__wrapper');
   if (!sliderWrapper) {
     console.error('sliderWrapper не найден!');
@@ -17,10 +17,16 @@ export default async function initSwiper() {
   }
 
   if (!Array.isArray(slidesData)) slidesData = [];
-  debugger;
+  console.log('Полученные данные:', slidesData);
 
   sliderWrapper.innerHTML = a(slidesData);
 
+  sliderWrapper.addEventListener('click', e => {
+    if (e.target.classList.contains('buttonWhite')) {
+      const slideId = e.target.dataset.id;
+      console.log('Нажата кнопка товара с id:', slideId);
+    }
+  });
   const swiper = new Swiper('.slider', {
     slidesPerView: 3,
     slidesPerGroup: 3,
@@ -67,7 +73,7 @@ function a(slidesData) {
       return images
         .map((nameItem, index) => {
           return `
-            <li class="slider__slide swiper-slide">
+            <li class="swiper-slide slider__slide">
               <img class="slider__image" src="${nameItem}" alt="${
             slide.name
           }" loading="lazy">
@@ -81,6 +87,9 @@ function a(slidesData) {
                 )
                 .join('')}
               </ul>
+              <button class="buttonWhite" data-id="${
+                slide._id
+              }">Детальніше</button>
           `;
         })
         .join('');

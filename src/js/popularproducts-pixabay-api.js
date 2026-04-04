@@ -9,7 +9,7 @@ export async function getPopularProducts() {
     return response.data.furnitures;
   } catch (error) {
     console.error(
-      'Ошибка при запросе:',
+      'Помилка при запиті:',
       error.response?.status,
       error.response?.data
     );

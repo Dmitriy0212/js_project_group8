@@ -1,6 +1,6 @@
 .slider {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1440px;
   margin: 0 auto;
   padding: 20px 0;
   box-sizing: border-box;
@@ -17,8 +17,8 @@
 .swiper-slide {
   flex-shrink: 0;
   width: calc((100% - 40px) / 3);
-  margin-right: 20px;
   box-sizing: border-box;
+  transition: width 0.5s;
 }
 .swiper-slide:last-child {
   margin-right: 0;
@@ -84,4 +84,18 @@
   height: 20px;
   border-radius: 100%;
   background-color: #f5deb3;
+}
+/* Styles for Desktop devices */
+@media only screen and (min-width: 768px) {
+  .swiper-slide {
+    width: 340px !important ;
+    transition: width 0.5s;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .swiper-slide {
+    width: 310px !important ;
+    transition: width 0.5s;
+  }
 }
