@@ -1,3 +1,18 @@
+.popular-products {
+  padding-top: 48px;
+  padding-bottom: 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.popular-products-title {
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 1.2;
+  letter-spacing: 0.01em;
+  color: #080c09;
+  margin-bottom: 32px;
+}
 .slider {
   width: 100%;
   max-width: 1440px;
@@ -5,6 +20,7 @@
   padding: 20px 0;
   box-sizing: border-box;
   overflow: hidden;
+  display: flex;
 }
 
 .swiper-wrapper {
@@ -14,11 +30,13 @@
   list-style: none;
 }
 
-.swiper-slide {
-  flex-shrink: 0;
-  width: calc((100% - 40px) / 3);
-  box-sizing: border-box;
-  transition: width 0.5s;
+.slider__info {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 16px 0;
+  flex-direction: column;
+  row-gap: 8px;
 }
 .swiper-slide:last-child {
   margin-right: 0;
@@ -27,6 +45,7 @@
   width: 100%;
   display: block;
   border-bottom: 1px solid #ddd;
+  border-radius: 8px;
 }
 
 .swiper-slide h3 {
@@ -34,7 +53,12 @@
   font-size: 16px;
   color: #333;
 }
-
+.slider-nav-pag {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 48px;
+}
 .slider__btn--prev,
 .slider__btn--next {
   width: 46px;
@@ -52,6 +76,9 @@
 }
 .slider__btn--next {
   right: 10px;
+}
+.slider__btn--disc {
+  width: 100%;
 }
 
 .slider__pagination {
@@ -78,24 +105,36 @@
 .slider__colors {
   display: flex;
   flex-direction: row;
+  column-gap: 16px;
 }
 .slider__color {
-  width: 20px;
-  height: 20px;
+  width: 24px;
+  height: 24px;
   border-radius: 100%;
-  background-color: #f5deb3;
+  border: 0.05px solid rgba(32, 26, 25, 0.1);
+}
+.slider__title {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 1.6;
+  color: #080c09;
+}
+.slider__price {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.6;
+  color: #080c09;
 }
 /* Styles for Desktop devices */
 @media only screen and (min-width: 768px) {
-  .swiper-slide {
-    width: 340px !important ;
-    transition: width 0.5s;
-  }
 }
 
 @media only screen and (min-width: 1440px) {
-  .swiper-slide {
-    width: 310px !important ;
-    transition: width 0.5s;
+  .popular-products {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+  .popular-products-title {
+    font-size: 48px;
   }
 }

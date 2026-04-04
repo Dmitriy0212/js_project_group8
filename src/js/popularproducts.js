@@ -30,12 +30,14 @@ export async function initSwiper() {
   const swiper = new Swiper('.slider', {
     slidesPerView: 3,
     slidesPerGroup: 3,
-    spaceBetween: 20,
     pagination: {
       el: '.slider__pagination',
-      clickable: true,
+      dynamicBullets: true,
       bulletClass: 'slider__bullet',
       bulletActiveClass: 'slider__bullet--active',
+      clickable: true,
+      dynamicBullets: true,
+      dynamicMainBullets: 7,
     },
     navigation: {
       nextEl: '.slider__btn--next',
@@ -50,9 +52,9 @@ export async function initSwiper() {
       },
     },
     breakpoints: {
-      300: { slidesPerView: 1, slidesPerGroup: 1 },
-      768: { slidesPerView: 2, slidesPerGroup: 2 },
-      1200: { slidesPerView: 3, slidesPerGroup: 3 },
+      300: { slidesPerView: 1, slidesPerGroup: 1, spaceBetween: 0 },
+      768: { slidesPerView: 2, slidesPerGroup: 2, spaceBetween: 24 },
+      1440: { slidesPerView: 4, slidesPerGroup: 4, spaceBetween: 24 },
     },
   });
 }
@@ -73,12 +75,13 @@ function a(slidesData) {
       return images
         .map((nameItem, index) => {
           return `
-            <li class="swiper-slide slider__slide">
+            <li class="slider__slide swiper-slide">
               <img class="slider__image" src="${nameItem}" alt="${
             slide.name
           }" loading="lazy">
-              <h3 class="slider__title">${slide.name}</h3>
-              <h3 class="slider__price">${slide.price}</h3>
+          <div class="slider__info">
+          <p class="slider__title">${slide.name}</p>
+              
                <ul class="slider__colors">
               ${colors
                 .map(
@@ -87,7 +90,9 @@ function a(slidesData) {
                 )
                 .join('')}
               </ul>
-              <button class="buttonWhite" data-id="${
+              <p class="slider__price">${slide.price} грн</p></div>
+              
+              <button class="buttonWhite slider__btn--disc" data-id="${
                 slide._id
               }">Детальніше</button>
           `;
