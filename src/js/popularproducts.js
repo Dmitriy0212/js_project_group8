@@ -1,5 +1,6 @@
 import Swiper from 'swiper/bundle';
 import 'swiper/css';
+import 'swiper/css/pagination';
 import { getPopularProducts } from './baseUrl';
 
 export async function initSwiper() {
@@ -28,13 +29,9 @@ export async function initSwiper() {
     }
   });
   const swiper = new Swiper('.slider', {
-    slidesPerView: 3,
-    slidesPerGroup: 3,
     pagination: {
-      el: '.slider__pagination',
+      el: '.swiper-pagination',
       dynamicBullets: true,
-      bulletClass: 'slider__bullet',
-      bulletActiveClass: 'slider__bullet--active',
       clickable: true,
       dynamicBullets: true,
       dynamicMainBullets: 7,
@@ -76,9 +73,9 @@ function a(slidesData) {
         .map((nameItem, index) => {
           return `
             <li class="slider__slide swiper-slide">
-              <img class="slider__image" src="${nameItem}" alt="${
+              <img class="slider__image is-loading" src="${nameItem}" alt="${
             slide.name
-          }" loading="lazy">
+          }" loading="lazy" onload="this.classList.remove('is-loading')">
           <div class="slider__info">
           <p class="slider__title">${slide.name}</p>
               

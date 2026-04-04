@@ -1,18 +1,9 @@
-import axios from 'axios';
-import { BASE_URL } from './baseUrl';
-export async function getPopularProducts() {
-  try {
-    const response = await axios.get(`${BASE_URL}furnitures`, {
-      params: { type: 'popular' },
-    });
+import Swiper from 'swiper/bundle';
+import 'swiper/css';
 
-    return response.data.furnitures;
-  } catch (error) {
-    console.error(
-      'Помилка при запиті:',
-      error.response?.status,
-      error.response?.data
-    );
-    return null;
-  }
-}
+var swiper = new Swiper('.mySwiper', {
+  pagination: {
+    el: '.swiper-pagination',
+    dynamicBullets: true,
+  },
+});
