@@ -51,13 +51,21 @@ export async function getFurnituresCategories() {
 }
 
 export async function postCreateUsersOrder(order) {
-  console.log('FAKE POST:', order);
+  try {
+    const response = await axios.post(`${BASE_URL}orders`, order, {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
 
-  return new Promise(resolve => {
-    setTimeout(() => {
-      resolve({ success: true });
-    }, 500);
-  });
+    return response.data;
+  } catch (error) {
+    console.error(
+      'Помилка при відправці форми',
+      error.response?.data || error.message
+    );
+    throw error;
+  }
 }
 
 export async function getFeedbacksList(page, limit) {

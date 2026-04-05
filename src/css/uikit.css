@@ -63,3 +63,48 @@
 .sliderArrows:active {
   background: #6b0609;
 }
+
+.rating-rate {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 1px;
+}
+
+.rating-rate > i {
+  color: #080c09;
+}
+
+.rating-rate > i::before {
+  font-size: 16px;
+}
+
+.color-option {
+  display: inline-block;
+  cursor: pointer;
+  margin-right: 12px;
+}
+
+.color-option input {
+  display: none;
+}
+
+.color-option__circle {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--color);
+  display: block;
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.color-option:hover .color-option__circle {
+  transform: scale(1.1);
+}
+
+.color-option input:checked + .color-option__circle {
+  border: 2px solid #000;
+  transform: scale(1.2);
+}
